@@ -84,7 +84,7 @@
 							(
 								$row["is_immediate"]
 								?
-								"Inmediately<br>"
+								"Immediately<br>"
 								:
                                 (
                                     $row["date_queued"]
@@ -222,4 +222,3 @@
 		}
 	}
 
-?>

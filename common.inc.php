@@ -15,13 +15,16 @@
 
 	require_once(dirname(__FILE__)."/classes/database/dbsource.inc.php");
 	require_once(dirname(__FILE__)."/classes/database/dbsource_mysqli.inc.php");
+	#require_once(dirname(__FILE__)."/classes/database/dbsource_mysql_pdo.inc.php");
+
 
 	global $db;
 	$db = new dbsource_mysqli(
 		EMAILQUEUE_DB_HOST,
 		EMAILQUEUE_DB_UID,
 		EMAILQUEUE_DB_PWD,
-		EMAILQUEUE_DB_DATABASE
+		EMAILQUEUE_DB_DATABASE,
+		EMAILQUEUE_DB_PORT,
 	);
 	if (!$db->connect()) {
 		throw new \Exception("Cannot connect to database");

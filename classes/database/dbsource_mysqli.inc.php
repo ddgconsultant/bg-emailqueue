@@ -8,24 +8,28 @@
 		var $uid;
 		var $pwd;
 		var $database;
+		var $port;
 		var $connectionid;
 
-		function __construct($host, $uid, $pwd, $database = "")
+		function __construct($host, $uid, $pwd, $database = "", $port = 3316)
 		{
 			$this->dbsource ("mysqli");
 			$this->host		= $host;
 			$this->uid		= $uid;
 			$this->pwd		= $pwd;
 			$this->database	= $database;
+			$this->port	= $port;
 		}
 
-		function connect($select = true)
+		function connect($select = true, $port = 3316)
 		{
-			$this->connectionid = mysqli_connect ($this->host, $this->uid, $this->pwd);
-			if($select)
+			$this->connectionid = mysqli_connect($this->host, $this->uid, $this->pwd, '', $port);
+			if ($select) {
 				$this->select($this->database);
+			}
 			return $this->connectionid;
 		}
+		
 
 		function select($database)
 		{
